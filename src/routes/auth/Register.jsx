@@ -4,7 +4,7 @@ import { faUser, faKey } from "@fortawesome/free-solid-svg-icons"
 
 function Register({username, password, setUsername, setPassword}){
     return (
-        <form className="register-form">
+        <>
             <h1 className="register-title">Create a new account</h1>
             <div className="input-group input-icon-group">
                 <div className="input-label-input">
@@ -32,7 +32,7 @@ function Register({username, password, setUsername, setPassword}){
                     Sign Up
                 </button>
             </div>
-        </form>
+        </>
     )
 }
 
