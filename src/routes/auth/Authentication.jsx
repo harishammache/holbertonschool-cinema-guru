@@ -4,7 +4,7 @@ import Login from "./Login.jsx"
 import Register from "./Register.jsx";
 import axios from "axios";
 
-function Authentication({ setIsLoggedIn, setUsername }) {
+function Authentication({ setIsLoggedIn, setUserUsername }) {
     const [_switch, setSwitch] = useState(true);
     const [username, setUsername] = useState("");
     const [password, setPasswordstring] = useState("");
