@@ -1,23 +1,38 @@
 import "./auth.css"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faUser, faKey } from "@fortawesome/free-solid-svg-icons"
 
-function Login({ username, password, setUsername, setPassword}) {
+function Login({ username, password, setUsername, setPassword }) {
     return (
-        <form className="auth-form">
+        <>
             <h1 className="auth-title">Sign in with your account</h1>
-            <input 
-                type="text"
-                placeholder="Username"
-                value={username}
-                onChange={e => setUsername(e.target.value)}
-            />
-            <input
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={e => setPassword(e.target.value)}
-            />
-            <button type="submit">Sign In</button>
-        </form>
+            <div className="input-group input-icon-group">
+                <div className="input-label-input">
+                    <label><span className="input-icon"><FontAwesomeIcon icon={faUser} /></span>Username:</label>
+                    <input 
+                        type="text"
+                        value={username}
+                        onChange={e => setUsername(e.target.value)}
+                    />
+                </div>
+            </div>
+            <div className="input-group input-icon-group">
+                <div className="input-label-input">
+                    <label><span className="input-icon"><FontAwesomeIcon icon={faKey} /></span>Password:</label>
+                    <input
+                        type="password"
+                        value={password}
+                        onChange={e => setPassword(e.target.value)}
+                    />
+                </div>
+            </div>
+            <div className="form-actions">
+                <button type="submit">
+                    <FontAwesomeIcon icon={faKey} />
+                    Sign In
+                </button>
+            </div>
+        </>
     )
 }
 

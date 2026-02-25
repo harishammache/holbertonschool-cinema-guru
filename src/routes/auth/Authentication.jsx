@@ -1,36 +1,34 @@
 import "./auth.css"
 import { useState } from "react"
 import Login from "./Login.jsx"
-import Register from "./Register.jsx";
-import axios from "axios";
+import Register from "./Register.jsx"
+import axios from "axios"
 
 function Authentication({ setIsLoggedIn, setUserUsername }) {
-    const [_switch, setSwitch] = useState(true);
-    const [username, setUsername] = useState("");
-    const [password, setPasswordstring] = useState("");
+    const [_switch, setSwitch] = useState(true)
+    const [username, setUsername] = useState("")
+    const [password, setPasswordstring] = useState("")
 
-    const handleSubmit =  async (event) => {
-        event.preventDefault();
+    const handleSubmit = async (event) => {
+        event.preventDefault()
         const url = _switch
             ? "/api/auth/login"
-            : "/api/auth/register";
+            : "/api/auth/register"
 
         const response = await axios.post(url, {
             username,
             password
-        });
+        })
 
-        const token = response.data.accessToken;
-
-        localStorage.setItem("token", token);
-
-        setUsername(username);
-        setIsLoggedIn(true);
+        const token = response.data.accessToken
+        localStorage.setItem("token", token)
+        setUsername(username)
+        setIsLoggedIn(true)
     }
 
     return (
-        <form className="auth-form" onSubmit={handleSubmit}>
-            <div>
+        <div className="auth-container">
+            <div className="auth-header">
                 <button
                     type="button"
                     className={_switch ? "active" : ""}
@@ -46,24 +44,27 @@ function Authentication({ setIsLoggedIn, setUserUsername }) {
                     Sign Up
                 </button>
             </div>
-            {_switch ? (
-                <Login
-                    username={username}
-                    password={password}
-                    setUsername={setUsername}
-                    setPassword={setPasswordstring}
-                />
-            ) : (
-                <Register
-                    username={username}
-                    password={password}
-                    setUsername={setUsername}
-                    setPassword={setPasswordstring}
-                />
-            )}
-        </form>
-    );
+            <div className="auth-content">
+                <form className="auth-form" onSubmit={handleSubmit}>
+                    {_switch ? (
+                        <Login
+                            username={username}
+                            password={password}
+                            setUsername={setUsername}
+                            setPassword={setPasswordstring}
+                        />
+                    ) : (
+                        <Register
+                            username={username}
+                            password={password}
+                            setUsername={setUsername}
+                            setPassword={setPasswordstring}
+                        />
+                    )}
+                </form>
+            </div>
+        </div>
+    )
 }
 export default Authentication
-
 
