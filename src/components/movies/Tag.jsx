@@ -15,11 +15,9 @@ function Tag({genre, filter, genres, setGenres}){
         }
     }
     return (
-        <div>
-            <li onClick={handleTag}>
-                {genre}
-            </li>
-        </div>
+        <li className={`mg-tag ${selected ? 'mg-selected' : ''}`} onClick={handleTag}>
+            {genre}
+        </li>
     )
 }
 

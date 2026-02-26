@@ -28,23 +28,27 @@ function MovieCard({ movie }) {
     }
 
     return (
-        <li className="movie-card">
-            <FontAwesomeIcon
-                icon={faHeart}
-                className={isFavorite ? "favorite active" : "favorite"}
-                onClick={() => handleClick("favorite")}
-            />
-            <FontAwesomeIcon
-                icon={faClock}
-                className={isWatchLater ? "watchlater active" : "watchlater"}
-                onClick={() => handleClick("watchlater")}
-            />
-            <h3>{movie.title}</h3>
-            <p>{movie.synopsis}</p>
-            <div>
-                {movie.genres && movie.genres.map((genre, idx) => (
-                    <span key={idx}>{genre}</span>
-                ))}
+        <li className="mg-card">
+            <div className="mg-icons">
+                <FontAwesomeIcon
+                    icon={faHeart}
+                    className={isFavorite ? "mg-icon mg-active" : "mg-icon"}
+                    onClick={() => handleClick("favorite")}
+                />
+                <FontAwesomeIcon
+                    icon={faClock}
+                    className={isWatchLater ? "mg-icon mg-active" : "mg-icon"}
+                    onClick={() => handleClick("watchlater")}
+                />
+            </div>
+            <h3 className="mg-title">{movie.title}</h3>
+            <div className="mg-synopsis-container">
+                <p className="mg-synopsis">{movie.synopsis}</p>
+                <div className="mg-genres">
+                    {movie.genres && movie.genres.map((genre, idx) => (
+                        <span key={idx} className="mg-genre-tag">{genre}</span>
+                    ))}
+                </div>
             </div>
         </li>
     )
