@@ -1,0 +1,30 @@
+.act-item {
+  list-style: none;
+  font-size: 12px;
+  line-height: 1.45;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.act-meta {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.act-user {
+  color: #ff7961;
+  font-weight: 700;
+}
+
+.act-verb,
+.act-date {
+  color: #d0d0d0;
+}
+
+.act-title {
+  color: #ff7961;
+  font-weight: 600;
+}

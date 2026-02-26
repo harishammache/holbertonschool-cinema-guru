@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import "./navigation.css"
 import { useNavigate } from "react-router-dom"
-import Activity from "../general/Activity.jsx"
+import Activity from "../Activity.jsx"
 import Button from "../general/Button.jsx"
 import axios from "axios"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
