@@ -10,13 +10,16 @@ function Header({ userUsername, setIsLoggedIn }){
     };
 
     return (
-        <nav>
-            <img src="https://picsum.photos/100/100" alt="avatar"/>
-            <p>Welcome {userUsername}</p>
-            <span onClick={logout} style={{ cursor: "pointer" }}>
-                <Button label="logout" icon={<FontAwesomeIcon icon={faRightFromBracket}/>}/>
-                Logout
-            </span>
+        <nav className="topo">
+            <h1 className="topo-title">Cinema Guru</h1>
+            <div className="topo-right">
+                <img src="https://picsum.photos/100/100" alt="avatar"/>
+                <p>Welcome {userUsername}</p>
+                <span onClick={logout} className="topo-action">
+                    <Button label="logout" icon={<FontAwesomeIcon icon={faRightFromBracket}/>}/>
+                    Logout
+                </span>
+            </div>
         </nav>
     )
 }

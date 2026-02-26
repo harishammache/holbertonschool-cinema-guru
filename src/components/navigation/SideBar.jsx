@@ -28,26 +28,29 @@ function SideBar() {
     }, []);
 
     return (
-        <nav>
-            <ul>
-                <li onClick={() => setPage("home")} style={{ cursor: "pointer" }}>
+        <nav className="side-panel side-panel-expanded">
+            <ul className="side-list">
+                <li className={`side-item ${selected === 'home' ? 'active' : ''}`} onClick={() => setPage("home")}>
                     <Button label="Home" icon={<FontAwesomeIcon icon={faFolder}/>}/>
-                    Home
+                    <span className="side-label">Home</span>
                 </li>
-                <li onClick={() => setPage("favorites")} style={{ cursor: "pointer" }}>
+                <li className={`side-item ${selected === 'favorites' ? 'active' : ''}`} onClick={() => setPage("favorites")}>
                     <Button label="Favorites" icon={<FontAwesomeIcon icon={faStar} />}/>
-                    Favorites
+                    <span className="side-label">Favorites</span>
                 </li>
-                <li onClick={() => setPage("watchlater")} style={{ cursor: "pointer" }}>
+                <li className={`side-item ${selected === 'watchlater' ? 'active' : ''}`} onClick={() => setPage("watchlater")}>
                     <Button label="Watchlater" icon={<FontAwesomeIcon icon={faClock} />}/>
-                    Watch Later
+                    <span className="side-label">Watch Later</span>
                 </li>
             </ul>
-            <ul>
-                {activities.slice(0, 10).map((activity, idx) => (
-                    <Activity key={idx} activity={activity} />
-                ))}
-            </ul>
+            <div className="side-activities">
+                <h3 className="side-activities-heading">Recent activity</h3>
+                <ul className="side-activities-items">
+                    {activities.slice(0, 10).map((activity, idx) => (
+                        <Activity key={idx} activity={activity} />
+                    ))}
+                </ul>
+            </div>
         </nav>
     )
 }
