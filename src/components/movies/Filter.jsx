@@ -1,6 +1,7 @@
 import "./movies.css"
-import SearchBar from "../general/SearchBar"
-import SelectInput from "../general/SelectInput"
+import SearchBar from "../general/SearchBar.jsx"
+import SelectInput from "../general/SelectInput.jsx"
+import Tag from "./Tag.jsx"
 
 const genreList = [
     "action", "drama", "commedy", "biography", "romance", "thriller",
@@ -25,8 +26,8 @@ function Filter({minYear, setMinYear, maxYear, setMaxYear, sort, setSort, genres
             />
             <SelectInput
                 value={sort}
-                setValue={setsSrt}
-                option={[
+                setValue={setSort}
+                options={[
                     { value: "latest", label: "Latest"},
                     { value: "oldest", label: "Oldest"},
                     { value: "highestrated", label: "Highest Rated"},

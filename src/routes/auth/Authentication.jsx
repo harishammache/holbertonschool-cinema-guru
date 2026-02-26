@@ -15,15 +15,13 @@ function Authentication({ setIsLoggedIn, setUserUsername }) {
             ? "/api/auth/login"
             : "/api/auth/register"
 
-        const response = await axios.post(url, {
-            username,
-            password
-        })
-
-        const token = response.data.accessToken
-        localStorage.setItem("token", token)
-        setUsername(username)
-        setIsLoggedIn(true)
+        axios.post(url, {username, password})
+            .then((response) => {
+                const token = response.data.accessToken
+                localStorage.setItem("token", token)
+                setUsername(username)
+                setIsLoggedIn(true)
+            })
     }
 
     return (

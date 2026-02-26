@@ -1,8 +1,11 @@
 import "./navigation.css"
+import Button from "../general/Button.jsx"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons"
 
-function Header({userUsername, serIsLoggedIn}){
+function Header({ userUsername, setIsLoggedIn }){
     const logout = () => {
-        localStorage.removeItem("token");
+        localStorage.removeItem("accessToken");
         setIsLoggedIn(false)
     };
 

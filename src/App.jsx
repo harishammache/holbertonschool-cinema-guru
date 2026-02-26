@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Authentication from './routes/auth/Authentication.jsx'
+import Dashboard from './routes/dashboard/Dashboard.jsx'
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -21,21 +22,17 @@ function App() {
       })
       .then(res => res.json())
       .then(data => {
-        setIsLoggedIn(true);
-        setUsername(data.username);
-      })
-      .catch(() => {
-        setIsLoggedIn(false);
-        setUserUsername("");
+        setIsLoggedIn(true)
+        setUserUsername(data.username)
       })
     }
   },)
   return (
     <div>
       {isLoggedIn ? (
-        <Dashboard />
+        <Dashboard userUsername={UserUsername} setIsLoggedIn={setIsLoggedIn}/>
       ) : (
-        <Authentication />
+        <Authentication setIsLoggedIn={setIsLoggedIn} setUserUsername={setUserUsername}/>
       )}
     </div>
   );
